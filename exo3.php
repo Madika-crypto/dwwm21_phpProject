@@ -69,27 +69,21 @@
         <p>résultat:
             <?php
             // TO DO
-            $startstring = "bleu, vert, noir, rouge, jaune"; 
-            // convert the string into array
-            $tab2 = explode("," , $startstring );
-
-            //insert an element of the beginnig of an array
-            array_unshift($tab2, "violet") 
             ?>
-            <ul>
-                <li><?php echo $tab2[0]; 
+            <!--            <ul>
+                <li><?php // echo $tab1[0]; 
                     ?></li>
-                <li><?php echo $tab2[1]; 
+                <li><?php // echo $tab1[1]; 
                     ?></li>
-                <li><?php echo $tab2[2]; 
+                <li><?php // echo $tab1[2]; 
                     ?></li>
-                <li><?php echo $tab2[3]; 
+                <li><?php // echo $tab1[3]; 
                     ?></li>
-                <li><?php echo $tab2[4]; 
+                <li><?php // echo $tab1[4]; 
                     ?></li>
-                <li><?php echo $tab2[5]; 
+                <li><?php // echo $tab1[5]; 
                     ?></li>
-            </ul> 
+            </ul> -->
         </p>
     
 
