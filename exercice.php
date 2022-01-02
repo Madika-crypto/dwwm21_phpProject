@@ -25,6 +25,7 @@
              <li><a href="/exo3.php">exercice 3</a>: Travailler avec des tableaux</li>
              <li><a href="/test3.php">cours</a>: Travailler avec des fonctions</li>
              <li><a href="/test2.php">test2</a>: Travailler</li>
+             <li><a href="/exo4.php">exercice 4</a>: Travailler avec des boucles</li>
          </ol>
     </div>
     <script src="/js/bootstrap.js"></script>
