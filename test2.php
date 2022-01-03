@@ -42,7 +42,23 @@ RESULTATS PHP
 // $output = array_slice($tab, 2, 1);
 // var_dump($output);
 // var_dump($tab);
+// pour table de vigenere
+$alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+// $alphabet = "ABC";
+$alphabetTab = str_split($alphabet);
+$doubleAlphabetTab = array_merge($alphabetTab, $alphabetTab);
+// var_dump($doubleAlphabetTab);
+// count = permet de compter nbre de vlrs ds 1 tblo !
+$sizeAlphabet = count($alphabetTab);
 
+for ($i =0; $i < $sizeAlphabet; $i++) {
+    for($j = 0; $j < $sizeAlphabet; $j++) {
+        $line = $alphabetTab[$i];
+        $column = $alphabetTab[$j];
+        $vigenere[$line][$column] = $doubleAlphabetTab[$i + $j];
+    }
+}
+var_dump($vigenere);
 // pour tester il faut fonction de test ou operateur de comparaison
 //  on va user if
 // $a = 1;
@@ -145,8 +161,6 @@ foreach($colorsTab as $key => $value){
 // echo"</li>";
 
 ?>
-
-
 
 
 

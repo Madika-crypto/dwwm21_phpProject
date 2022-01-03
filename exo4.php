@@ -18,7 +18,13 @@
     
        <h5>1- créer une <a href="https://www.latoilescoute.net/table-de-vigenere" target="_blank">table de vigenère</a></h5>
        <?php
-       // TO DO
+       // TO Do
+     
+
+
+
+
+
        ?>
        <h5>2- encode le message "APPRENDRE PHP EST UNE CHOSE FORMIDABLE" avec la clé "BACKEND"</h5>
        <?php
@@ -53,7 +59,6 @@
 
     
     </div>
-
-    <script src="/bootstrap.js"></script>
+    <script src="/js/bootstrap.js"></script>
 </body>
 </html>
