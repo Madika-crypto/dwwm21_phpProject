@@ -18,7 +18,7 @@
     
        <h5>1- créer une <a href="https://www.latoilescoute.net/table-de-vigenere" target="_blank">table de vigenère</a></h5>
        <?php
-       // TO DO
+       // TO Do
      
 
 
@@ -59,7 +59,6 @@
 
     
     </div>
-
     <script src="/js/bootstrap.js"></script>
 </body>
 </html>
