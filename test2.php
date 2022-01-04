@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,17 +12,17 @@
 
 
 <body>
-<?php include("./partial/_navBar.php"); ?>
+    <?php include("./partial/_navBar.php"); ?>
     <div class="container">
 
 
-    <h1>Page de test2 Php</h1>
+        <h1>Page de test2 Php</h1>
 
 
 
-    <pre>
+        <pre>
 
-    
+
 RESULTATS PHP
 =====================================================================    
 
@@ -42,23 +43,19 @@ RESULTATS PHP
 // $output = array_slice($tab, 2, 1);
 // var_dump($output);
 // var_dump($tab);
-// pour table de vigenere
-$alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+// $alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 // $alphabet = "ABC";
-$alphabetTab = str_split($alphabet);
-$doubleAlphabetTab = array_merge($alphabetTab, $alphabetTab);
 // var_dump($doubleAlphabetTab);
 // count = permet de compter nbre de vlrs ds 1 tblo !
-$sizeAlphabet = count($alphabetTab);
+// $alphabetTab = str_split($alphabet);
+// $doubleAlphabetTab = array_merge($alphabetTab, $alphabetTab);
+// var_dump($doubleAlphabetTab);
+// count = permet de compter nbre de vlrs ds 1 tblo !
 
-for ($i =0; $i < $sizeAlphabet; $i++) {
-    for($j = 0; $j < $sizeAlphabet; $j++) {
-        $line = $alphabetTab[$i];
-        $column = $alphabetTab[$j];
-        $vigenere[$line][$column] = $doubleAlphabetTab[$i + $j];
-    }
-}
-var_dump($vigenere);
+
+
+
+
 // pour tester il faut fonction de test ou operateur de comparaison
 //  on va user if
 // $a = 1;
@@ -143,22 +140,64 @@ var_dump($vigenere);
 
 // pour connaitre le nom d'élément ds un tableau on fait count
 // 
-$colors = ["bleu", "vert", "rouge", "marron", "orange", "jaune", "blanc", "noir","violet","turquoise"];
+// $colors = ["bleu", "vert", "rouge", "marron", "orange", "jaune", "blanc", "noir","violet","turquoise"];
 
-for ($i = 0 ; $i < count($colors); $i++){
-    $colorsTab["couleur $i"]  = $colors[$i];
-}
+// for ($i = 0 ; $i < count($colors); $i++){
+//     $colorsTab["couleur $i"]  = $colors[$i];
+// }
 //$colors as $color egal à = $value
-echo "<ul>";
+// echo "<ul>";
 // foreach($colors as $color => $value){
 //     echo "couleur" . $color + 1 . ":" . $value . "<br>";
-foreach($colorsTab as $key => $value){
-    echo "$key: $value<br>";
-}
+// foreach($colorsTab as $key => $value){
+//     echo "$key: $value<br>";
+// }
 // var_dump($colorsTab);
 // echo "<ul>";
 // echo "<li> couleur " . $i + 1 . " : " . $colors[$i]. " </li>";
 // echo"</li>";
+
+// EXO4
+// table de vigenere
+$alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+$alphabetTab = str_split($alphabet);
+$doubleAlphabetTab = array_merge($alphabetTab, $alphabetTab);
+$sizeAlphabet = count($alphabetTab);
+
+for ($i = 0; $i < $sizeAlphabet; $i++) {
+    for ($j = 0; $j < $sizeAlphabet; $j++) {
+        $line = $alphabetTab[$i];
+        $column = $alphabetTab[$j];
+        $vigenere[$line][$column] = $doubleAlphabetTab[$i + $j];
+    }
+}
+
+// encode message
+$message = "APPRENDRE PHP EST UNE CHOSE FORMIDABLE";
+$key = "BACKEND";
+$messageTab = str_split($message);
+$keyTab = str_split($key);
+$keySize = count($keyTab);
+
+$keyCounter = 0;
+foreach ($messageTab as $pointer => $letterToEncode) {
+    $positonkeyLetter = $keyCounter % $keySize;
+    $keyLetter = $keyTab[$positonkeyLetter];
+      if($letterToEncode != "") {
+         $encodedMessage[] = $vigenere[$letterToEncode][$keyLetter];
+      } else {
+          $encodedMessage[] = "";
+      }
+      $keyCounter++;
+}
+$cryptedMessage = implode($encodedMessage);
+
+var_dump($cryptedMessage);
+
+
+
+
+
 
 ?>
 
@@ -176,4 +215,5 @@ foreach($colorsTab as $key => $value){
 
     <script src="/js/bootstrap.js"></script>
 </body>
+
 </html>
