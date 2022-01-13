@@ -183,16 +183,43 @@ $keyCounter = 0;
 foreach ($messageTab as $pointer => $letterToEncode) {
     $positonkeyLetter = $keyCounter % $keySize;
     $keyLetter = $keyTab[$positonkeyLetter];
-      if($letterToEncode != "") {
-         $encodedMessage[] = $vigenere[$letterToEncode][$keyLetter];
-      } else {
-          $encodedMessage[] = "";
-      }
-      $keyCounter++;
+    if ($letterToEncode != "") {
+        $encodedMessage[] = $vigenere[$letterToEncode][$keyLetter];
+    } else {
+        $encodedMessage[] = "";
+    }
+    $keyCounter++;
 }
 $cryptedMessage = implode($encodedMessage);
 
-var_dump($cryptedMessage);
+// decode message
+$encodedMessage = "TWA PEE WM TESLH WL LSLVNMRJ";
+$key4decode = "VIGENERE";
+
+$encodedMessageTab = str_split($encodedMessage);
+$key4decodeTab = str_split($key4decode);
+$key4decodeSize = count($key4decodeTab);
+
+$keyCounter = 0;
+foreach ($encodedMessageTab as $pointer => $letterToDecode) {
+    $positonkeyLetter = $keyCounter % $key4decodeSize;
+    $keyLetter = $key4decodeTab[$positonkeyLetter];
+    if ($letterToDecode != " ") {
+        for ($i = 0; $i < $sizeAlphabet; $i++) {
+          $lineToDecode = $alphabetTab[$i];
+          if ($vigenere[$lineToDecode][$keyLetter] == $letterToDecode) {
+            $decryptedMessage[] = $lineToDecode;  
+          }   
+        }
+        // $encodedMessage[] = $vigenere[$letterToDecode][$keyLetter];
+    } else {
+        $decryptedMessage[] = " ";
+    }
+    $keyCounter++;
+}
+$decodedMessage = implode($decryptedMessage);
+
+var_dump($decodedMessage);
 
 
 

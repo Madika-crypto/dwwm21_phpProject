@@ -32,7 +32,7 @@
                 $vigenere[$line][$column] = $doubleAlphabetTab[$i + $j];
             }
         }
-        var_dump($vigenere);
+        // var_dump($vigenere);
 
 
 
@@ -43,16 +43,16 @@
         $key = "BACKEND";
         // TO DO
         // encode message
-        
+
         $messageTab = str_split($message);
         $keyTab = str_split($key);
         $keySize = count($keyTab);
 
         $keyCounter = 0;
         foreach ($messageTab as $pointer => $letterToEncode) {
-            $positonkeyLetter = $keyCounter % $keySize;
-            $keyLetter = $keyTab[$positonkeyLetter];
-            if ($letterToEncode != "") {
+            $positonKeyLetter = $keyCounter % $keySize;
+            $keyLetter = $keyTab[$positonKeyLetter];
+            if ($letterToEncode != " ") {
                 $encodedMessage[] = $vigenere[$letterToEncode][$keyLetter];
             } else {
                 $encodedMessage[] = "";
@@ -66,10 +66,32 @@
         <p>le résultat est: <?php echo $cryptedMessage; ?></p>
         <h5>3- decoder le message "TWA PEE WM TESLH WL LSLVNMRJ" avec la clé "VIGENERE"</h5>
         <?php
+        //  decode message
         $encodedMessage = "TWA PEE WM TESLH WL LSLVNMRJ";
         $key4decode = "VIGENERE";
-        // TO DO
-        $decodedMessage = $encodedMessage;
+        $encodedMessageTab = str_split($encodedMessage);
+        $key4decodeTab = str_split($key4decode);
+        $key4decodeSize = count($key4decodeTab);
+
+        $keyCounter = 0;
+        foreach ($encodedMessageTab as $pointer => $letterToDecode) {
+            $positonkeyLetter = $keyCounter % $key4decodeSize;
+            $keyLetter = $key4decodeTab[$positonkeyLetter];
+            if ($letterToDecode != " ") {
+                for ($i = 0; $i < $sizeAlphabet; $i++) {
+                    $lineToDecode = $alphabetTab[$i];
+                    if ($vigenere[$lineToDecode][$keyLetter] == $letterToDecode) {
+                        $decryptedMessage[] = $lineToDecode;
+                    }
+                }
+                // $encodedMessage[] = $vigenere[$letterToDecode][$keyLetter];
+            } else {
+                $decryptedMessage[] = " ";
+            }
+            $keyCounter++;
+        }
+        $decodedMessage = implode($decryptedMessage);
+
         ?>
         <p>le message chiffré est: <?php echo $encodedMessage; ?></p>
         <p>la clé est: <?php echo $key4decode ?></p>
